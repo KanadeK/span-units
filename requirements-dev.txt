@@ -1,0 +1,4 @@
+build==1.6.1
+ruff==0.17.2
+setuptools==84.2.1
+wheel==0.48.0

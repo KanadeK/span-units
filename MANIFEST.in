@@ -1,0 +1,4 @@
+include CONTRIBUTING.md SECURITY.md requirements-dev.txt
+recursive-include scripts *.py
+recursive-include examples *.jsonl
+recursive-include tests *.py
