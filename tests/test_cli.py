@@ -165,3 +165,23 @@ class CliTests(unittest.TestCase):
         )
         self.assertEqual(proc.returncode, 2)
         self.assertNotIn("Traceback", proc.stderr)
+
+    def test_huge_limit_rejected_before_io(self):
+        proc = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "span_units",
+                "x",
+                "--from-unit",
+                "utf8",
+                "--to-unit",
+                "utf16",
+                "--max-line-bytes",
+                str(10**100),
+            ],
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(proc.returncode, 2)
+        self.assertNotIn("Traceback", proc.stderr)

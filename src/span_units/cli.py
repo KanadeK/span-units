@@ -17,8 +17,8 @@ class InputError(ValueError):
 
 def positive(value: str) -> int:
     value = int(value)
-    if value <= 0:
-        raise argparse.ArgumentTypeError("must be positive")
+    if not 0 < value <= 2_147_483_647:
+        raise argparse.ArgumentTypeError("must be between 1 and 2147483647")
     return value
 
 
